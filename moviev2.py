@@ -14,10 +14,6 @@ FONT_BOLD = "Helvetica 13 bold"
 
 flag = 0
 bot_name = "Wumpus"
-ask_mode = ['Do you want to watch at home or at the cinema?', 'netflix night or cinema night']
-cinema_mode =['outside', 'cimema', 'tgv', 'gsc', 'netflix']
-home_mode = ['home', 'house']
-mode = {'cinema' : cinema_mode, 'home' : home_mode}
 
 m_actions = [
   "Transformers: Rise of the Beasts", "Polis Evo 3", "The Roundup: No Way Out",
@@ -96,21 +92,9 @@ error_key = "invalid input noob"
 farewell_in = ["bye", "got to go"]
 farewell_out = ["adios amigo!", "have a great time!", "see ya next time", "please come again"]
 
-def check_mode(user_input):
-    txt.insert(END, "\n" + bot_name + "-> " +  choice(ask_mode))
 
-    for inputs in user_input:
-        if inputs in cinema_mode:
-            return 'cinema'
-    
-    for inputs in user_input:
-        if inputs in home_mode:
-            return 'nexflix'
-
-    return '0'
-
-def check_input(user_input, mode):
-    if mode == 'cinema':
+def check_input(user_input, mode = 1):
+    if mode == 1:
         flag = 0
         for inputs in user_input:
             if inputs in genra_s:
@@ -118,7 +102,7 @@ def check_input(user_input, mode):
                 flag = 1
         if flag == 0:
             txt.insert(END, "\n" + bot_name + "-> " +  error_key)
-    elif mode == 'netflix':
+    elif mode == 2:
         flag = 0
         for inputs in user_input:
             if inputs in genra_s:
@@ -126,7 +110,7 @@ def check_input(user_input, mode):
                 flag = 1
         if flag == 0:
             txt.insert(END, "\n" + bot_name + "-> " +  error_key)
-
+    #else: 
 
 def check_bye(user_input):
     for inputs in user_input:
@@ -140,7 +124,6 @@ def check_bye(user_input):
             return True
         
 def main():
-
     main = "You -> " + e.get()
     txt.insert(END, "\n" + main)
 
