@@ -127,16 +127,16 @@ def main():
     main = "You -> " + e.get()
     txt.insert(END, "\n" + main)
 
-    while True:
-        user_input = str(e.get().lower())
-        e.delete(0, END)
-        user_input = user_input.split()
-        run = check_bye(user_input)
-        if run == True:
-            check_input(user_input)
-            break
-        else:
-            break
+    
+    user_input = str(e.get().lower())
+    e.delete(0, END)
+    user_input = user_input.split()
+    run = check_bye(user_input)
+    if run == True:
+        check_input(user_input)
+
+
+        
 
 
 lable1 = Label(root, bg=BG_COLOR, fg=TEXT_COLOR, text="Welcome", font=FONT_BOLD, pady=10, width=20, height=1).grid(row=0)
