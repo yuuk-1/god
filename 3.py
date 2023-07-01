@@ -141,7 +141,7 @@ def time(user_input):
     return
 
 def display_text(text, font, position, color):
-    rendered_text = font.render(text, True, color)
+    rendered_text = font.render(text, font, color)
     screen.blit(rendered_text, position)
     display_text("Wumpus: " + bot_response, font, (10, 40), BLACK)
 
@@ -155,31 +155,31 @@ while running:
                 # Process user input
                 if user_input:
                     bot_response = bot_greetings()
-                    display_text("Wumpus: What can I help you?", True, BLACK)
+                    display_text("Wumpus: What can I help you?", font, (10, 10), BLACK)
 
                     if user_input.split() in greeting_check:
                         bot_response = greetings(user_input)
-                        display_text("Wumpus: Where you want to watch? In cinema? In netflix?", True, BLACK)
+                        display_text("Wumpus: Where do you want to watch? In cinema? In Netflix?", font, (10, 40), BLACK)
 
                     if "cinema" in user_input.split():
                         bot_response = cinema_recommend(user_input)
-                        display_text("Wumpus: Where do you live? We are here to suggest a place for you to watch too.", True, BLACK)
+                        display_text("Wumpus: Where do you live? We are here to suggest a place for you to watch too.", font, (10, 70), BLACK)
 
                     if "netflix" in user_input.split():
                         bot_response = netflix_recommend(user_input)
-                        display_text("Wumpus: Where do you live? We are here to suggest a place for you to watch too.", True, BLACK)
+                        display_text("Wumpus: Where do you live? We are here to suggest a place for you to watch too.", font, (10, 100), BLACK)
 
                     if area in user_input.split():
                         bot_response = location(user_input)
-                        display_text("Wumpus: Do you want us to suggest a time for you to watch?", True, BLACK)
+                        display_text("Wumpus: Do you want us to suggest a time for you to watch?", font, (10, 130), BLACK)
 
-                    # if user_input.split() in time:
-                    #     bot_response = time(user_input)
-                    #     display_text("Wumpus: Thank you for choosing us. Do you have anything else?", True, BLACK)
+                    if user_input.split() in time:
+                        bot_response = time(user_input)
+                        display_text("Wumpus: Thank you for choosing us. Do you have anything else?", font, (10, 160), BLACK)
 
                     if user_input.split() in farewell_check:
                         bot_response = farewell(user_input)
-                        display_text("Wumpus: See you and bye bye.\03\03\03", True, BLACK)
+                        display_text("Wumpus: See you and bye bye.\03\03\03", font, (10, 190), BLACK)
 
                     user_input = ''
             elif event.key == K_BACKSPACE:
