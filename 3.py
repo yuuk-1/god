@@ -90,9 +90,8 @@ def netflix_recommend(user_inputs):
     else:
         return bot_name + ": Invalid Input.Please try again!"
 ####################################################################################################################################
-cinema=["cinema"]
-netflix=["netflix"]
-time=["11"]
+emoji = ['\03']
+time = ['yes', 'ya']
 greeting_check = ['hallo', 'halo', 'konichiwa']
 greeting_list = ['halo, how I can help you sir?', 'hello, how may I help you?']
 farewell_check = ["bye", "got to go"]
@@ -136,7 +135,7 @@ def location(user_input):
             else:
                 pass
     else:
-        return bot_name +'The location have no Theatre/Cinema around.'
+        return bot_name +': The location have no Theatre/Cinema around.'
 
 def time(user_input):
     return
@@ -156,24 +155,31 @@ while running:
                 # Process user input
                 if user_input:
                     bot_response = bot_greetings()
+                    display_text("Wumpus: What can I help you?", True, BLACK)
 
-                    if user_input.lower() in greeting_check:
+                    if user_input.split() in greeting_check:
                         bot_response = greetings(user_input)
+                        display_text("Wumpus: Where you want to watch? In cinema? In netflix?", True, BLACK)
 
-                    if user_input.lower() in cinema:
+                    if "cinema" in user_input.split():
                         bot_response = cinema_recommend(user_input)
+                        display_text("Wumpus: Where do you live? We are here to suggest a place for you to watch too.", True, BLACK)
 
-                    if user_input.lower() in netflix:
+                    if "netflix" in user_input.split():
                         bot_response = netflix_recommend(user_input)
+                        display_text("Wumpus: Where do you live? We are here to suggest a place for you to watch too.", True, BLACK)
 
-                    if user_input.lower() in area:
+                    if area in user_input.split():
                         bot_response = location(user_input)
+                        display_text("Wumpus: Do you want us to suggest a time for you to watch?", True, BLACK)
 
-                    # if user_input.lower() in time:
+                    # if user_input.split() in time:
                     #     bot_response = time(user_input)
+                    #     display_text("Wumpus: Thank you for choosing us. Do you have anything else?", True, BLACK)
 
-                    if user_input.lower() in farewell_check:
+                    if user_input.split() in farewell_check:
                         bot_response = farewell(user_input)
+                        display_text("Wumpus: See you and bye bye.\03\03\03", True, BLACK)
 
                     user_input = ''
             elif event.key == K_BACKSPACE:
