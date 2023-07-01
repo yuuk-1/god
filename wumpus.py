@@ -134,6 +134,7 @@ while True:
             if user_inputs == "bye":
                 break
             else:
+                i=0
                 for key in cinema_movie_list:#loop our key in dict
                     if key in user_inputs.split():# check key if same with user input with the key word
                         print("Wumpus --> I recommend you to watch ",end="")
@@ -141,8 +142,9 @@ while True:
                         cinema_recommend(user_inputs)
                         break
                     elif key not in user_inputs.split():
-                        print("Wumpus --> Invalid Input")
-                        break
+                        i+=1
+                        if i == 9:
+                            print("Wumpus --> Invalid Input")
         break
                         
             
@@ -158,6 +160,7 @@ while True:
             if user_inputs == "bye":
                 break
             else:
+                i=0
                 for key in netflix_list: #loop our key in dict
                     if key in user_inputs.split(): # check key if same with user input with the key word
                         print("Wumpus --> I recommend you to watch ",end="")
@@ -165,39 +168,19 @@ while True:
                         netflix_recommend(user_inputs)
                         break
                     elif key not in user_inputs.split():
-                        print("Wumpus --> Invalid Input")
-                        break
+                        i+=1
+                        if i == 4:
+                            print("Wumpus --> Invalid Input")
         break
     else:
         print("Wumpus --> Invalid Input")
         
-# print("Wumpus--> Where Do you Live?")
-# n=0
-# while True:
-#         if n>=1:
-#             print("Wumpus --> What else can I do for you?")
-#         user_inputs = str(input("User--> "))
-#         n+=1
-#         #user_inputs = user_inputs.lower().split()
-#         if user_inputs == "bye":
-#             break
-#         else:
-#             for key in area: #loop our key in dict
-#                 if key in user_inputs.split(): # check key if same with user input with the key word
-#                     user_inputs= key
-#                     print(user_inputs)
-#                     location(user_inputs)
-#                     break
-                # else:
-                #     print("Wumpus --> Invalid Input")
-                #     break
-    
-# 
-print("Wumpus--> Where Do you Live?")
+
+print("Wumpus--> Where Do you Live? I would like to recommend you theatre near you!")
 n=0
 while True:
         if n>=1:
-            print("Wumpus --> What else can I do for you?")
+            print("Wumpus --> Can I have your location")
         user_inputs = str(input("User--> "))
         n+=1
         #user_inputs = user_inputs.lower().split()
@@ -212,4 +195,5 @@ while True:
                 else:
                     print("Wumpus --> Invalid Input")
                     break
+        break
 print("Thank you. See you next time! <3")
