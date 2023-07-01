@@ -130,7 +130,7 @@ def location(user_input):
             else:
                 pass
     else:
-        print('The location have no Theatre/Cinema around.')
+        return'The location have no Theatre/Cinema around.'
 
 def time(user_input):
     return
