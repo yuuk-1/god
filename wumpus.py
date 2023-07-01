@@ -24,23 +24,23 @@ netflix_list={
     }
 
 area = {
-    "Kuala Lumpur" : ["Aurum Theatre, The Gardens Mall","GSC 1 Utama","GSC 3 Damansara","GSC Berjaya Times Square","GSC CITTA Mall",
+    "Kuala_Lumpur" : ["Aurum Theatre, The Gardens Mall","GSC 1 Utama","GSC 3 Damansara","GSC Berjaya Times Square","GSC CITTA Mall",
                     "GSC EkoCheras Mall","GSC Lotus's Kepong","GSC Melawati Mall","GSC Mid Valley Megamall","GSC MyTOWN","GSC NU Sentral",
                     "GSC Quill City Mall","GSC Setapak Central, KL","GSC The Starling Mall"],
     "Melaka":["GSC Aeon Bandaraya Melaka","GSC Dataran Pahlawan"],
-    "Johor Bahru":["Aurum Theatre, The Mall, Mid Valley SouthKey","GSC AEON Mall Bandar Dato' Onn, Kempas","GSC IOI Mall Kulai",
+    "Johor_Bahru":["Aurum Theatre, The Mall, Mid Valley SouthKey","GSC AEON Mall Bandar Dato' Onn, Kempas","GSC IOI Mall Kulai",
                 "GSC KSL City Mall, JB","GSC Mid Valley Southkey","GSC Paradigm JB","GSC Sunway Big Box"],
     "Ipoh":["GSC AEON Mall Ipoh Falim","GSC Ipoh Parade"],
     "Putrajaya":["GSC Alamanda","GSC IOI City Mall","GSC IOI City Mall 2"],
-    "Alor Setar":["GSC Aman Central"],
-    "Sungai Petani":["GSC Amanjaya Mall","GSC Central Square"],
+    "Alor_Setar":["GSC Aman Central"],
+    "Sungai_Petani":["GSC Amanjaya Mall","GSC Central Square"],
     "Kuantan":["GSC East Coast Mall","GSC Kuantan City Mall, Kuantan"],
     "Penang":["GSC Gurney Plaza","GSC Queensbay Mall","GSC Sunway Carnival"],
     "Puchong":["GSC IOI Mall"],
     "Klang":["GSC Klang Parade"],
     "Seremban":["GSC Palm Mall"],
-    "Petaling Jaya":["GSC Paradigm Mall","GSC Tropicana Gardens Mall"],
-    "Shah Alam":["GSC Setia City Mall"],
+    "Petaling_Jaya":["GSC Paradigm Mall","GSC Tropicana Gardens Mall"],
+    "Shah_Alam":["GSC Setia City Mall"],
     "Subang":["GSC Subang Parade","GSC Summit USJ"]
 } 
 ###############################################################################################################################
@@ -117,42 +117,89 @@ def location(user_inputs):
     else:
         print('The location have no Theatre/Cinema around.')
         
-
 print("Wumpus--> ",end="")
-bot_greetings()
-print("Wumpus--> Are you looking For cinema Movie or Netflix? ")
-user_inputs = str(input("User --> ")).lower()
-if user_inputs == "cinema":
-    print("Wumpus--> What genres of movie are you looking for?" )
-    while True:
-        user_inputs = str(input("User--> "))
-        #user_inputs = user_inputs.lower().split()
-        if user_inputs == "bye":
-            break
-        else:
-            for key in cinema_movie_list:#loop our key in dict
-                if key in user_inputs.split():# check key if same with user input with the key word
-                    print("Wumpus --> I recommend you to watch ",end="")
-                    user_inputs= key
-                    cinema_recommend(user_inputs)
-        
-elif user_inputs == "netflix":
-    print("Wumpus--> What genres of movie are you looking for?" )
-    while True:
-        user_inputs = str(input("User--> "))
-        #user_inputs = user_inputs.lower().split()
-        if user_inputs == "Bye":
-            break
-        else:
-            for key in netflix_list: #loop our key in dict
-                if key in user_inputs.split(): # check key if same with user input with the key word
-                    print("Wumpus --> I recommend you to watch ",end="")
-                    user_inputs= key
-                    netflix_recommend(user_inputs)
-
-print("Wumpus--> Where Do you Live?")
+bot_greetings()        
 while True:
+    print("Wumpus--> Are you looking For cinema Movie or Netflix? ")
+    user_inputs = str(input("User --> ")).lower()
+    if "cinema" in user_inputs.split():
+        print("Wumpus--> What genres of movie are you looking for?" )
+        n=0
+        while True:
+            if n>=1:
+                print("Wumpus --> What else can I do for you?")
+            user_inputs = str(input("User--> "))
+            n+=1
+            #user_inputs = user_inputs.lower().split()
+            if user_inputs == "bye":
+                break
+            else:
+                for key in cinema_movie_list:#loop our key in dict
+                    if key in user_inputs.split():# check key if same with user input with the key word
+                        print("Wumpus --> I recommend you to watch ",end="")
+                        user_inputs= key
+                        cinema_recommend(user_inputs)
+                        break
+                    elif key not in user_inputs.split():
+                        print("Wumpus --> Invalid Input")
+                        break
+        break
+                        
+            
+    elif "netflix" in user_inputs.split():
+        print("Wumpus--> What genres of movie are you looking for?" )
+        n=0
+        while True:
+            if n>=1:
+                print("Wumpus --> What else can I do for you?")
+            user_inputs = str(input("User--> "))
+            n+=1
+            #user_inputs = user_inputs.lower().split()
+            if user_inputs == "bye":
+                break
+            else:
+                for key in netflix_list: #loop our key in dict
+                    if key in user_inputs.split(): # check key if same with user input with the key word
+                        print("Wumpus --> I recommend you to watch ",end="")
+                        user_inputs= key
+                        netflix_recommend(user_inputs)
+                        break
+                    elif key not in user_inputs.split():
+                        print("Wumpus --> Invalid Input")
+                        break
+        break
+    else:
+        print("Wumpus --> Invalid Input")
+        
+# print("Wumpus--> Where Do you Live?")
+# n=0
+# while True:
+#         if n>=1:
+#             print("Wumpus --> What else can I do for you?")
+#         user_inputs = str(input("User--> "))
+#         n+=1
+#         #user_inputs = user_inputs.lower().split()
+#         if user_inputs == "bye":
+#             break
+#         else:
+#             for key in area: #loop our key in dict
+#                 if key in user_inputs.split(): # check key if same with user input with the key word
+#                     user_inputs= key
+#                     print(user_inputs)
+#                     location(user_inputs)
+#                     break
+                # else:
+                #     print("Wumpus --> Invalid Input")
+                #     break
+    
+# 
+print("Wumpus--> Where Do you Live?")
+n=0
+while True:
+        if n>=1:
+            print("Wumpus --> What else can I do for you?")
         user_inputs = str(input("User--> "))
+        n+=1
         #user_inputs = user_inputs.lower().split()
         if user_inputs == "Bye":
             break
@@ -161,6 +208,8 @@ while True:
                 if key in user_inputs.split(): # check key if same with user input with the key word
                     user_inputs= key
                     location(user_inputs)
-    
-
-
+                    break
+                else:
+                    print("Wumpus --> Invalid Input")
+                    break
+print("Thank you. See you next time! <3")
