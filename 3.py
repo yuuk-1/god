@@ -18,6 +18,7 @@ chat_history = []
 # Set up chatbot variables
 bot_name = 'Wumpus'
 user_input = ''
+bot_response = ''
 
 invalid = False
 cinema_movie_list={
@@ -168,14 +169,11 @@ while running:
                     if user_input.lower() in area:
                         bot_response = location(user_input)
 
-                    if user_input.lower() in time:
-                        bot_response = time(user_input)
+                    # if user_input.lower() in time:
+                    #     bot_response = time(user_input)
 
                     if user_input.lower() in farewell_check:
                         bot_response = farewell(user_input)
-
-                    chat_history.append("User: " + user_input)
-                    chat_history.append("Wumpus: " + bot_response)
 
                     user_input = ''
             elif event.key == K_BACKSPACE:
@@ -186,11 +184,15 @@ while running:
     # Clear the screen
     screen.fill(WHITE)
 
-    pygame.draw.rect(screen, BLACK, (10, 550, 780, 40), 2)
-    user_text = font.render("User: " + user_input, True, BLACK)
-    screen.blit(user_text, (15, 555))
+    # Render user input
+    user_input_text = font.render("User: " + str(user_input), True, BLACK)
+    screen.blit(user_input_text, (10, 350))
 
-    # Update the display
-    pygame.display.update()
+    # Render bot response
+    bot_response_text = font.render("Wumpus: " + str(bot_response), True, BLACK)
+    screen.blit(bot_response_text, (10, 380))
 
+    pygame.display.flip()
+
+# Quit pygame
 pygame.quit()
