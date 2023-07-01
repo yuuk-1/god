@@ -126,12 +126,39 @@ while True:
         print("Wumpus--> What genres of movie are you looking for?" )
         n=0
         while True:
+            end=0
             if n>=1:
                 print("Wumpus --> What else can I do for you?")
             user_inputs = str(input("User--> "))
             n+=1
             #user_inputs = user_inputs.lower().split()
             if user_inputs == "bye":
+                print("Wumpus--> Where Do you Live? I would like to recommend you theatre near you!")
+                n=0
+                while True:
+                        if n>=1:
+                            print("Wumpus --> Can I have your location")
+                        user_inputs = str(input("User--> "))
+                        n+=1
+                        #user_inputs = user_inputs.lower().split()
+                        if user_inputs == "bye":
+                            break
+                        else:
+                            i=0
+                            for key in area: #loop our key in dict
+                                if key in user_inputs.split(): # check key if same with user input with the key word
+                                    user_inputs= key
+                                    location(user_inputs)
+                                    end=1
+                                    break
+                                elif key not in user_inputs.split():
+                                    i+=1
+                                    if i== 15:
+                                        print("Wumpus --> Invalid Input")
+                        if end ==1:
+                            break                
+                print("\nThank you. See you next time! <3")
+                
                 break
             else:
                 i=0
@@ -175,25 +202,12 @@ while True:
     else:
         print("Wumpus --> Invalid Input")
         
+print("""
+████████╗██╗░░██╗░█████╗░███╗░░██╗██╗░░██╗██╗░░░██╗░█████╗░██╗░░░██╗
+╚══██╔══╝██║░░██║██╔══██╗████╗░██║██║░██╔╝╚██╗░██╔╝██╔══██╗██║░░░██║
+░░░██║░░░███████║███████║██╔██╗██║█████═╝░░╚████╔╝░██║░░██║██║░░░██║
+░░░██║░░░██╔══██║██╔══██║██║╚████║██╔═██╗░░░╚██╔╝░░██║░░██║██║░░░██║
+░░░██║░░░██║░░██║██║░░██║██║░╚███║██║░╚██╗░░░██║░░░╚█████╔╝╚██████╔╝
+░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░░╚═════╝░""")
 
-print("Wumpus--> Where Do you Live? I would like to recommend you theatre near you!")
-n=0
-while True:
-        if n>=1:
-            print("Wumpus --> Can I have your location")
-        user_inputs = str(input("User--> "))
-        n+=1
-        #user_inputs = user_inputs.lower().split()
-        if user_inputs == "Bye":
-            break
-        else:
-            for key in area: #loop our key in dict
-                if key in user_inputs.split(): # check key if same with user input with the key word
-                    user_inputs= key
-                    location(user_inputs)
-                    break
-                else:
-                    print("Wumpus --> Invalid Input")
-                    break
-        break
-print("Thank you. See you next time! <3")
+
