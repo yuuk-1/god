@@ -46,6 +46,23 @@ area = {
 
 
 def cinema_recommend(user_inputs):
+        """
+        argument a list 
+
+        if user_inputs in the keys of cinema_movie_list(dictionary)
+        key in cinama_movie_list
+        if user_inputs == key
+        keys, value in the items of cinema_movie_list(dictionary)
+        if keys == user_inputs
+        print(choice(values))
+
+        if user_inputs != key
+        pass
+
+        if user_inputs not in cinema_movie_list
+        print("invalif input")
+        
+        """
     if user_inputs in cinema_movie_list.keys(): #check user input in our data ?
         for key in cinema_movie_list: # loop all the key to check user input one by one
             if user_inputs==key: #check if user input is equal to our data location
@@ -58,6 +75,22 @@ def cinema_recommend(user_inputs):
         print("Invalid Input.Please try again!")
     
 def netflix_recommend(user_inputs):
+        """
+        argument a list 
+
+        if user_inputs in the keys of netfilx_movie_list(dictionary)
+        key in netflix_movie_list
+        if user_inputs == key
+        keys, value in the items of netflix_movie_list(dictionary)
+        if keys == user_inputs
+        print(choice(values))
+
+        if user_inputs != key
+        pass
+
+        if user_inputs not in netflix_movie_list
+        print("invalif input")
+        """
     if user_inputs in netflix_list.keys(): #check user input in our data ?
         for key in netflix_list: # loop all the key to check user input one by one
             if user_inputs==key: #check if user input is equal to our data location
@@ -76,6 +109,23 @@ def bot_greetings():
     print(choice(wumpus_greeting))
 
 def location(user_inputs): 
+        """
+        argument a list 
+
+        if user_inputs in the keys of area(dictionary)
+        key in area
+        if user_inputs == key
+        keys, value in the items of area(dictionary)
+        if keys == user_inputs
+        print(join(values))
+
+        if user_inputs != key
+        pass
+
+        if user_inputs not in cinema_movie_list
+        print("invalif input")
+        
+        """
     if user_inputs in area.keys(): #check user input in our data ?
         for key in area: # loop all the key to check user input one by one
             if user_inputs==key: #check if user input is equal to our data location
