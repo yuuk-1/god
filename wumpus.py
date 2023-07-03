@@ -1,7 +1,7 @@
 from random import choice
 
 bot_name = 'Wumpus'
-invalid = False
+
 cinema_movie_list={
         "action":["Transformers: Rise of the Beasts", "Polis Evo 3", "The Roundup: No Way Out","Fast X", "Red Line",
                 "Guardians of Galaxy Volume 3","The Dark Knight", "Inception"],
@@ -43,7 +43,8 @@ area = {
     "Shah_Alam":["GSC Setia City Mall"],
     "Subang":["GSC Subang Parade","GSC Summit USJ"]
 } 
-###############################################################################################################################
+
+
 def cinema_recommend(user_inputs):
     if user_inputs in cinema_movie_list.keys(): #check user input in our data ?
         for key in cinema_movie_list: # loop all the key to check user input one by one
@@ -67,41 +68,12 @@ def netflix_recommend(user_inputs):
                 pass
     else:
         print("Invalid Input.Please try again!")
-####################################################################################################################################
-greeting_check = ['hallo', 'halo', 'konichiwa']
-greeting_list = ['halo, how I can help you sir?', 'hello, how may I help you?']
-farewell_check = ["bye", "got to go"]
-farewell_list = ["adios amigo!", "have a great time!", "see ya next time", "please come again"]
-watch_request = ["what you feel like having?", "what movie u want to watch?"]
+
 
 def bot_greetings():
-    wumpus_greeting=statements = [
-    "Hi",
-    "Hello",
-    "How are you?",
-    "What's up?",
-    "Yo",
-    "How you doin?",
-    "Good Morning",
-    "Good Evening",
-    "Good Afternoon",
-    "Good Night",
-    "What can I do with you?",
-    "My name is Wumpus :D",
-    "How can I help you?",
-    ]
+    wumpus_greeting= ["Hi","Hello","How are you?","What's up?","Yo","How you doin?","Good Morning","Good Evening","Good Afternoon",
+    "Good Night","What can I do with you?","My name is Wumpus :D","How can I help you?",]
     print(choice(wumpus_greeting))
-def greetings(user_input):
-    for inputs in user_input:
-        if inputs in greeting_check:
-            print(bot_name,"-->", choice(greeting_list))
-
-def farewell(user_input):
-    for inputs in user_input:
-        if inputs in farewell_check:
-            print(bot_name,"-->", choice(farewell_list))
-
-
 
 def location(user_inputs): 
     if user_inputs in area.keys(): #check user input in our data ?
@@ -137,7 +109,7 @@ while True:
                 n=0
                 while True:
                         if n>=1:
-                            print("Wumpus --> Can I have your location")
+                            print("Wumpus --> Can I have your locations?")
                         user_inputs = str(input("User--> "))
                         n+=1
                         #user_inputs = user_inputs.lower().split()
