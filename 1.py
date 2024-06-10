@@ -3,7 +3,7 @@ import random
 from time import sleep
 from random import choice
 
-bot_name = 'Wumpus'
+bot_name = 'Wumpus1'
 
 m_actions = [
     "Transformers: Rise of the Beasts", "Polis Evo 3", "The Roundup: No Way Out",
